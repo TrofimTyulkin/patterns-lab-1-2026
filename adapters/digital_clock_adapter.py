@@ -14,13 +14,6 @@ DEGREES_PER_SECOND = 360 / 60
 
 
 class DigitalClockAdapter(BaseDigitalClock):
-    """
-    Объектный адаптер: реализует BaseDigitalClock, делегируя хранение
-    времени аналоговым часам, переданным через композицию.
-
-    Аналоговые часы показывают время с точностью до секунды,
-    поэтому микросекунды и часовой пояс при установке отбрасываются.
-    """
 
     def __init__(self, clock: BaseAnalogClock) -> None:
         self._clock = clock
@@ -53,7 +46,7 @@ class DigitalClockAdapter(BaseDigitalClock):
         hour_angle = (self._clock.get_hour_angle() - (minute / 60 + second / 3600) * DEGREES_PER_HOUR)
         hour = round(hour_angle / DEGREES_PER_HOUR) % 12
 
-        # 12-часовой циферблат: 0° + AM — полночь (00), 0° + PM — полдень (12).
+        # перевод AM/PM в 24 формат
         if self._clock.get_day_night_division() is DayNightDivision.PM:
             hour += 12
 
