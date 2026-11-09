@@ -8,9 +8,9 @@ from datetime import datetime
 from consts import DayNightDivision
 from interfaces import BaseAnalogClock, BaseDigitalClock
 
-DEGREES_PER_HOUR = 360 / 12  # часовая стрелка: 30° за час
-DEGREES_PER_MINUTE = 360 / 60  # минутная стрелка: 6° за минуту
-DEGREES_PER_SECOND = 360 / 60  # секундная стрелка: 6° за секунду
+DEGREES_PER_HOUR = 360 / 12
+DEGREES_PER_MINUTE = 360 / 60
+DEGREES_PER_SECOND = 360 / 60
 
 
 class DigitalClockAdapter(BaseDigitalClock):
